@@ -30,15 +30,27 @@ $(document).ready(function () {
     var randomNum = Math.floor((Math.random() * 120) + 19);
 
     // Display random number
-    $('.gametotal').html(randomNum);
+    $(".gametotal").html(randomNum);
 
     //Generate random number for each crystal
-    var num1 = Math.floor(Math.random() * 12 + 1)
-    var num2 = Math.floor(Math.random() * 12 + 1)
-    var num3 = Math.floor(Math.random() * 12 + 1)
-    var num4 = Math.floor(Math.random() * 12 + 1)
+    var num1 = Math.floor((Math.random() * 12) + 1);
+    var num2 = Math.floor((Math.random() * 12) + 1);
+    var num3 = Math.floor((Math.random() * 12) + 1);
+    var num4 = Math.floor((Math.random() * 12) + 1);
 
-    $(".gamescore").html("Wins : " + wins + "<br>Loseses : " + losses)
+    $(".gamescore").html("Wins : " + wins + "<br>Losses : " + losses)
+
+    function reset() {
+        randomNUm = Math.floor((Math.random() * 120) + 19);
+        console.log(randomNum)
+        $(".gametotal").text(randomNum);
+        num1 = Math.floor((Math.random() * 12) + 1);
+        num2 = Math.floor((Math.random() * 12) + 1);
+        num3 = Math.floor((Math.random() * 12) + 1);
+        num4 = Math.floor((Math.random() * 12) + 1);
+        score = 0;
+        $(".yourscore").text(score);
+    }
 
     
 
@@ -46,75 +58,75 @@ $(document).ready(function () {
     function win() {
         alert("Congrats! You won!");
         wins++;
-        $('.wins').text(wins);
+        
         reset();
     }
     // Display losses
     function loser() {
         alert("Sorry! You lose!");
         losses++;
-        $('.losses').text(losses);
-        reset()
+        
+        reset();
     }
     // Clicking crystals
-    $('.red').on('click', function () {
+    $(".red").on("click", function () {
         score = score + num1;
         
         $(".yourscore").text(score);
         //Win & lose conditions
-        if (score == randomNum) {
-            woohoo();
+        if (score === randomNum) {
+            win();
+            wins++;
         }
         else if (score > randomNum) {
             loser();
+            losses++;
         }
+
+        
     })
-    $('.blue').on('click', function () {
+    $(".blue").on("click", function () {
         score = score + num2;
         
         $(".yourscore").text(score);
-        if (score == randomNum) {
-            woohoo();
+        if (score === randomNum) {
+            win();
+            wins++;
         }
         else if (score > randomNum) {
             loser();
+            losses++;
         }
     })
-    $('.yellow').on('click', function () {
+    $(".yellow").on("click", function () {
         score = score + num3;
         
         $(".yourscore").text(score);
 
-        if (score == randomNum) {
-            woohoo();
+        if (score === randomNum) {
+            win();
+            wins++;
         }
         else if (score > randomNum) {
             loser();
+            losses++;
         }
     })
-    $('.green').on('click', function () {
+    $(".green").on("click", function () {
         score = score + num4;
         
         $(".yourscore").text(score);
 
-        if (score == randomNum) {
+        if (score === randomNum) {
             win();
+            wins++;
         }
         else if (score > randomNum) {
             loser();
+            losses++;
         }
-        // Reset game
-        function reset() {
-            randomNUm = Math.floor(Math.random() * 102 + 19);
-            console.log(randomNum)
-            $('#scoreToMatch').text(randomNum);
-            num1 = Math.floor(Math.random() * 12 + 1);
-            num2 = Math.floor(Math.random() * 12 + 1);
-            num3 = Math.floor(Math.random() * 12 + 1);
-            num4 = Math.floor(Math.random() * 12 + 1);
-            score = 0;
-            $(".yourscore").text(score);
-        }
+        
+        
     });
 });
 

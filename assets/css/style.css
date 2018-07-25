@@ -1,13 +1,18 @@
 body {
+    background-color: black;
     background-image: url("assets/images/background.jpg");
 }
 
 h1 {
     background-color: orange;
     display: inline-block;
-    padding: 200px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    font-size:10px;
 
 }
+
 
 div { 
     margin-bottom: 0px;
@@ -28,15 +33,19 @@ img {
 
 .gametotal {
     background-color: blue;
-    display: inline-block;
+    margin-right: 3px;
     float: left;
-    width: 120px;
+    width:25%;
     height: 100px;
 }
 
 .gamescore {
     background-color: skyblue;
     width: 100px;
+    height: 100px;
+    clear: auto;
+    overflow: auto;
+    
 }
 img {
     clear: auto;
@@ -54,4 +63,6 @@ img {
 .yourscore {
     background-color: green;
     width:25%;
+    height: 100px;
+
 }
